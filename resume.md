@@ -1,22 +1,28 @@
 ---
-layout: default
+layout: page
 title: Resume
 permalink: /resume/
 ---
 
 <style>
-.resume-container {
-    max-width: 95%; /* Wider than standard */
-    margin: 0 auto;
-    padding: 2rem 0;
+/* Hide the auto-generated page title */
+body > header > h1, 
+.page-content > div > header > h1,
+article > header > h1 {
+  display: none !important;
 }
-.wrapper {
-    max-width: 100% !important; /* Override minima wrapper for this page */
-    padding-right: 15px;
-    padding-left: 15px;
+
+.resume-container {
+    width: 95vw; /* 95% of the viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -47.5vw; /* Half of 95vw */
+    margin-right: -47.5vw;
+    padding: 2rem 0;
 }
 </style>
 
 <div class="resume-container">
-    <embed src="/Karanikola_Resume.pdf" width="100%" height="1000px" type="application/pdf">
+    <embed src="/Karanikola_Resume.pdf" width="100%" height="1200px" type="application/pdf">
 </div>
