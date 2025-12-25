@@ -2,6 +2,7 @@
 layout: page
 title: Blog
 permalink: /blog/
+order: 3
 ---
 
 <ul class="post-list">

@@ -1,10 +1,13 @@
 ---
-layout: page-no-title
+layout: page
 title: Resume
 permalink: /resume/
+order: 2
 ---
 
 <style>
+.post-title { display: none !important; }
+
 .resume-container {
     width: 90vw; /* Slightly less than 95 to be safe */
     position: relative;

@@ -3,7 +3,7 @@ layout: post
 title:  "Here is a sleek fine tuning technique to use"
 date:   2024-02-28 08:45:52 -0500
 categories: LLMs
-permalink: /blog/
+
 ---
 This month's discussion will be about fine-tuning LLMs to adjust the models’ weights to perform specific tasks with higher precision. I need to stress here from the beginning that not all use cases require fine-tuning an LLM. However, you may consider this technique if other methods, aka few-shot prompting and model experimentation, have failed to yield the desired outcomes. 
 

@@ -3,7 +3,7 @@ layout: post
 title:  "All about LLM selection and adaptation"
 date:   2024-01-30 08:45:52 -0500
 categories: LLMs
-permalink: /blog/
+
 ---
 This will be the first entry on the Diary of an AI Practitioner, recounting the knowledge I acquired along the way working on a text summarization task. I hope this will be a useful and fun read for another fellow AI enthusiast. 
 
