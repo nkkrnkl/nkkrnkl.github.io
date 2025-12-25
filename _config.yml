@@ -66,6 +66,6 @@ url: https://nikikaranikola.com  # the base hostname & protocol for your site, e
 theme: minima
 header_pages:
   - index.html
-  - blog.md
   - resume.md
+  - blog.md
 

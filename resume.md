@@ -1,24 +1,15 @@
 ---
-layout: page
+layout: page-no-title
 title: Resume
 permalink: /resume/
 ---
 
 <style>
-/* Hide the auto-generated page title */
-body > header > h1, 
-.page-content > div > header > h1,
-article > header > h1 {
-  display: none !important;
-}
-
 .resume-container {
-    width: 95vw; /* 95% of the viewport width */
+    width: 90vw; /* Slightly less than 95 to be safe */
     position: relative;
     left: 50%;
-    right: 50%;
-    margin-left: -47.5vw; /* Half of 95vw */
-    margin-right: -47.5vw;
+    transform: translateX(-50%);
     padding: 2rem 0;
 }
 </style>
