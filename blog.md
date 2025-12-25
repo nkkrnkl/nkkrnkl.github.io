@@ -12,9 +12,6 @@ order: 3
         <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
       </h2>
       <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-      {% if post.excerpt %}
-        {{ post.excerpt }}
-      {% endif %}
     </li>
   {% endfor %}
 </ul>
