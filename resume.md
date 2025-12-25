@@ -9,7 +9,7 @@ order: 2
 .post-title { display: none !important; }
 
 .resume-container {
-    width: 60vw;
+    width: 40vw;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
