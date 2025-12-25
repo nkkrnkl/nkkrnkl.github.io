@@ -9,9 +9,12 @@ order: 2
 .post-title { display: none !important; }
 
 .resume-container {
-    width: 80%;
-    margin: 2rem auto;
+    width: 85vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
+    margin-top: 2rem;
 }
 </style>
 
