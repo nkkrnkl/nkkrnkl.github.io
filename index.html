@@ -24,6 +24,8 @@ permalink: /
         height: 200px;
         border-radius: 50%;
         object-fit: cover;
+        object-position: top center;
+        /* Fix face cut-off */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         flex-shrink: 0;
     }
@@ -35,18 +37,22 @@ permalink: /
     .profile-name {
         font-size: 2.5rem;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        /* Closer to name */
         line-height: 1.2;
     }
 
     .profile-credentials {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        /* Smaller font */
         color: #555;
-        line-height: 1.6;
+        line-height: 1.4;
+        /* Closer text */
     }
 
     .profile-credentials p {
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.15rem;
+        /* Closer paragraphs */
     }
 
     .profile-bio {
@@ -66,7 +72,7 @@ permalink: /
         align-items: center;
         gap: 0.5rem;
         padding: 0.5rem 1rem;
-        border: 1px solid #ddd;
+        /* border: 1px solid #ddd; Removed border */
         border-radius: 8px;
         text-decoration: none;
         color: #333;
