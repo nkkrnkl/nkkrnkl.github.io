@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.collectionpage %}
+    {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+    <title>{{ collectiondata.title }} - {{ site.title }}</title>
+    {% elsif page.title %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+    {% else %}
+    <title>{{ site.title }}</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ " /assets/styles.css" | relative_url }}">
+
+    {% if site.favicon %}
+    <link rel="shortcut icon" href="{{ site.favicon }}">
+    {% else %}
+    <link rel="shortcut icon" href="{{ site.logo }}">
+    {% endif %}
+
+    <!-- Custom table styles for clean appearance -->
+    <style>
+        /* Clean table styling matching reference design */
+        table {
+            border-collapse: collapse !important;
+            width: 100% !important;
+            margin: 2em 0 !important;
+            display: table !important;
+            font-size: 0.95rem !important;
+            background: #fff !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 4px !important;
+        }
+
+        th,
+        td {
+            border: none !important;
+            border-bottom: 1px solid #e8e8e8 !important;
+            padding: 16px 20px !important;
+            text-align: left !important;
+            vertical-align: top !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+        }
+
+        th {
+            background-color: #fafafa !important;
+            font-weight: 700 !important;
+            color: #333 !important;
+            border-bottom: 1px solid #ddd !important;
+        }
+
+        /* First column styling - bold labels */
+        td:first-child {
+            font-weight: 600 !important;
+            color: #222 !important;
+            min-width: 160px !important;
+        }
+
+        /* Remove bottom border from last row */
+        tr:last-child td {
+            border-bottom: none !important;
+        }
+
+        /* Subtle hover effect */
+        tbody tr:hover {
+            background-color: #fafafa !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    {{ content }}
+
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400i,700|Neuton:400,700" rel="stylesheet">
+</body>
+
+</html>
