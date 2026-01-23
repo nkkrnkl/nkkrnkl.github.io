@@ -1,42 +1,47 @@
----
----
-@import "garth";
+--- --- @import "garth";
 
 /* Custom table styling for clean, minimal tables */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.95rem;
-  background: #fff;
-  border: 1px solid #e0e0e0;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    background: #fff;
+    border: 1px solid #e0e0e0;
 }
 
-th, td {
-  border: none;
-  border-bottom: 1px solid #e8e8e8;
-  padding: 16px 20px;
-  text-align: left;
-  vertical-align: top;
-  line-height: 1.6;
+th,
+td {
+    border: none;
+    border-bottom: 1px solid #e8e8e8;
+    padding: 18px 28px;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 th {
-  background-color: #fafafa;
-  font-weight: 700;
-  color: #333;
+    background-color: #fafafa;
+    font-weight: 700;
+    color: #333;
 }
 
 td:first-child {
-  font-weight: 600;
-  color: #222;
-  min-width: 160px;
+    font-weight: 600;
+    color: #222;
+    min-width: 180px;
+    padding-right: 36px;
+}
+
+/* Add more space between columns */
+td:nth-child(2) {
+    padding-right: 36px;
 }
 
 tr:last-child td {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 tbody tr:hover {
-  background-color: #fafafa;
+    background-color: #fafafa;
 }
