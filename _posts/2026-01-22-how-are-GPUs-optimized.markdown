@@ -30,11 +30,32 @@ Before cuDNN 5, researchers used individual cuBLAS (Basic Linear Algebra Subprog
 
 To achieve a **5.5x increase** in GPU utilization, cuDNN 5 implemented three optimizations:
 
-| Optimization | How it Works | Why it Matters |
-| :--- | :--- | :--- |
-| **Combining GEMMs** | Stack multiple weight matrices into one large operation. | Increases work per thread helping with GPU utilization. |
-| **Streaming GEMMs** | Uses CUDA Streams to run the input GEMM and the recurrent GEMM simultaneously. | Exploits the fact that these two operations don't depend on each other. |
-| **Fusing Point-wise Ops** | Combines sigmoids, tangent, and additions into a single kernel. | Prevents the GPU from writing/reading intermediate data to memory repeatedly. |
+<table style="width:100%; border-collapse:collapse; margin:2em 0; border:1px solid #ddd;">
+  <thead>
+    <tr style="background:#f5f5f5; border-bottom:2px solid #ddd;">
+      <th style="padding:16px 20px; text-align:left; width:22%; border-right:1px solid #ddd;">Optimization</th>
+      <th style="padding:16px 20px; text-align:left; width:39%; border-right:1px solid #ddd;">How it Works</th>
+      <th style="padding:16px 20px; text-align:left; width:39%;">Why it Matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:16px 20px; font-weight:600; border-right:1px solid #eee;">Combining GEMMs</td>
+      <td style="padding:16px 20px; border-right:1px solid #eee;">Stack multiple weight matrices into one large operation.</td>
+      <td style="padding:16px 20px;">Increases work per thread helping with GPU utilization.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #eee;">
+      <td style="padding:16px 20px; font-weight:600; border-right:1px solid #eee;">Streaming GEMMs</td>
+      <td style="padding:16px 20px; border-right:1px solid #eee;">Uses CUDA Streams to run the input GEMM and the recurrent GEMM simultaneously.</td>
+      <td style="padding:16px 20px;">Exploits the fact that these two operations don't depend on each other.</td>
+    </tr>
+    <tr>
+      <td style="padding:16px 20px; font-weight:600; border-right:1px solid #eee;">Fusing Point-wise Ops</td>
+      <td style="padding:16px 20px; border-right:1px solid #eee;">Combines sigmoids, tangent, and additions into a single kernel.</td>
+      <td style="padding:16px 20px;">Prevents the GPU from writing/reading intermediate data to memory repeatedly.</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 1. Combining GEMMs
 One LSTM unit requires 8 GEMMs (4 for input x_i and 4 for the hidden states). By stacking these matrices, we combine multiple small operations into a single GEMM, increasing work per thread and thereby improving occupancy. This keeps the GPU’s execution units constantly occupied with mathematical operations.
