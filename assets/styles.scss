@@ -1,0 +1,42 @@
+---
+---
+@import "garth";
+
+/* Custom table styling for clean, minimal tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+}
+
+th, td {
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 16px 20px;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+th {
+  background-color: #fafafa;
+  font-weight: 700;
+  color: #333;
+}
+
+td:first-child {
+  font-weight: 600;
+  color: #222;
+  min-width: 160px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #fafafa;
+}
