@@ -1,0 +1,13 @@
+<nav class="nav">
+    <ul class="list list--nav">
+        <li class="item item--nav{% if page.url == '/' %} item--current{% endif %}">
+            <a href="{{ '/' | relative_url }}">About</a>
+        </li>
+        <li class="item item--nav{% if page.url == '/resume/' %} item--current{% endif %}">
+            <a href="{{ '/resume/' | relative_url }}">Resume</a>
+        </li>
+        <li class="item item--nav{% if page.url == '/blog/' %} item--current{% endif %}">
+            <a href="{{ '/blog/' | relative_url }}">Blog</a>
+        </li>
+    </ul>
+</nav>
