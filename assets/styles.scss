@@ -1,45 +1,48 @@
 --- --- @import "garth";
 
-/* Custom table styling for clean, minimal tables */
+/* Custom table styling for clean, readable tables */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.5em 0;
+    margin: 2em 0;
     background: #fff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #ddd;
+    table-layout: fixed;
 }
 
 th,
 td {
-    border: none;
-    border-bottom: 1px solid #e8e8e8;
-    padding: 18px 28px;
+    border: 1px solid #e0e0e0;
+    padding: 20px 24px;
     text-align: left;
-    vertical-align: middle;
-    line-height: 1.6;
+    vertical-align: top;
+    line-height: 1.7;
     font-size: 1rem;
 }
 
 th {
-    background-color: #fafafa;
+    background-color: #f8f8f8;
     font-weight: 700;
     color: #333;
+    border-bottom: 2px solid #ddd;
 }
 
+/* Set column widths */
+th:first-child,
 td:first-child {
+    width: 20%;
     font-weight: 600;
     color: #222;
-    min-width: 180px;
-    padding-right: 36px;
 }
 
-/* Add more space between columns */
+th:nth-child(2),
 td:nth-child(2) {
-    padding-right: 36px;
+    width: 40%;
 }
 
-tr:last-child td {
-    border-bottom: none;
+th:nth-child(3),
+td:nth-child(3) {
+    width: 40%;
 }
 
 tbody tr:hover {

@@ -11,7 +11,7 @@ In one of my classes, a PhD student mentioned how shockingly underutilized GPU r
 
 With compute being costly and scarce, efficient GPU usage is paramount.  
 
-This is why I'd like to share what I've learned about achieving higher GPU performance.  
+Let's explore strategies for achieving peak GPU performance.  
 
 In this post, we’ll look at 3 operations which were first introduced in cuDNN 5. All the proposed optimizations in J. Appleyard’s blog achieved a near 70% peak floating-point performance for a Long Short-Term Memory (LSTM) network on an NVIDIA Tesla M40. 
 
@@ -37,7 +37,7 @@ To achieve a **5.5x increase** in GPU utilization, cuDNN 5 implemented three opt
 | **Fusing Point-wise Ops** | Combines sigmoids, tangent, and additions into a single kernel. | Prevents the GPU from writing/reading intermediate data to memory repeatedly. |
 
 #### 1. Combining GEMMs
-One LSTM unit requires 8 GEMMs (4 for input $x_i$ and 4 for the hidden states). By stacking these matrices, we combine multiple small operations into a single GEMM, increasing work per thread and thereby improving occupancy. This keeps the GPU’s execution units constantly occupied with mathematical operations.
+One LSTM unit requires 8 GEMMs (4 for input x_i and 4 for the hidden states). By stacking these matrices, we combine multiple small operations into a single GEMM, increasing work per thread and thereby improving occupancy. This keeps the GPU’s execution units constantly occupied with mathematical operations.
 
 #### 2. Streaming GEMMs
 In an LSTM, the input GEMM (data coming into the layer) and the recurrent GEMM (hidden state from the previous time step) are independent. Therefore, we can double the number of concurrent blocks by using CUDA streams, which execute multiple operations simultaneously. This ensures that more Streaming Multiprocessors (SMs) are active at once.
@@ -45,7 +45,7 @@ In an LSTM, the input GEMM (data coming into the layer) and the recurrent GEMM (
 #### 3. Fusing Point-wise Operations
 Every time a new kernel is launched, the CPU and GPU have to communicate, which adds latency. For LSTMs, launching a new kernel for every point-wise operation, such as calculating sigmoids for the gates or a tanh for the cell state, creates kernel launch overhead and a memory bandwidth bottleneck. Therefore, combining all these operations into a single CUDA kernel can significantly reduce data transfers to and from global memory, allowing the GPU to read the data once, perform all the math in the same kernel, and write the final result back just once.
 
-These three operations resulted in a 5.5x improvement in GPU utilization. While some of these are now embedded in the hardware of modern GPUs (A100/H100) or handled by software/compilers, we still need to know how to utilize our GPUs efficiently.
+Achieving a 5.5x improvement through these three optimizations showcases the importance of fully utilizing the silicon we have with our own code. While modern GPUs such as the H100 and A100 have automated much of this in the hardware, we still need to learn how they work to leverage the power of the GPUs we have.
 
 #### Sources
 
