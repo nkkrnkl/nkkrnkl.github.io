@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: " en-US" }}">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if page.collectionpage %}
+    {% assign collectiondata = site.collections | where: "label", page.collectionpage | first %}
+    <title>{{ collectiondata.title }} - {{ site.title }}</title>
+    {% elsif page.title %}
+    <title>{{ page.title }} - {{ site.title }}</title>
+    {% else %}
+    <title>{{ site.title }}</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ " /assets/styles.css" | relative_url }}">
+
+    <!-- Favicons for browsers and search engines (Google) -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32.png' | absolute_url }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ '/favicon.png' | absolute_url }}">
+    <link rel="shortcut icon" href="{{ '/favicon.png' | absolute_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | absolute_url }}">
+
+    <!-- Include custom head additions -->
+    {% include head-custom.html %}
+
+</head>
+
+<body>
+
+    {{ content }}
+
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:400,400i,700|Neuton:400,700" rel="stylesheet">
+</body>
+
+</html>
